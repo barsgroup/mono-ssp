@@ -1,0 +1,1 @@
+ninja && ./mono_ssp --pid "$(pgrep -f mono.*ConsoleApplication3.exe)"
