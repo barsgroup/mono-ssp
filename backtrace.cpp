@@ -95,7 +95,7 @@ Result<optional<ThreadSample>, string> sample_thread(StringPool& string_pool, Pe
 
     {
         int status;
-        pid_t tmp = waitpid(target_pid, &status, WCONTINUED);
+        pid_t tmp = waitpid(target_pid, &status, WCONTINUED | __WALL);
         if (tmp != target_pid) {
             return fail("waitpid() failed with ret = " + to_string(tmp) + " errno = " + to_string(errno) + " message = " + strerror(errno));
         }
